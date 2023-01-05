@@ -22,3 +22,17 @@ stack_t *add_node(stack_t **head, const int n)
 	(*head) = new;
 	return (new);
 }
+
+int check_digit(char *arg)
+{
+	int i;
+
+	for (i = 0; arg[i]; i++)
+	{
+		if (arg[i] == '-' && i == 0)
+			continue;
+		if (_isdigit(arg[i]) == 0)
+			return (1);
+	}
+	return (0);
+}
