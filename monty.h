@@ -52,4 +52,11 @@ stack_t *add_node(stack_t **stack, int n);
 int check_digit(char *arg);
 int _isdigit(int c);
 
+#define  INSTRUCTION_ERROR(LINE, INSTRUCTION, STACK) \
+do {\
+	fprintf(stderr, "L%d: unknown instruction %s\n", LINE, INSTRUCTION);\
+	free_dlistint(STACK);\
+	exit(EXIT_FAILURE);\
+} while (0)
+
 #endif
