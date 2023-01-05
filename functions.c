@@ -28,7 +28,7 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
             return;
     while (temp)
     {
-        fprintf(stderr, "%d\n", temp->n);
+        printf("%d\n", temp->n);
         temp = temp->next;
     }
 }
