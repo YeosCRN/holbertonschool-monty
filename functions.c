@@ -55,6 +55,6 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		}
 		index++;
 	}
-	printf("L%d: unknown instruction %s\n", line_number, op);
+	printf("L%u: unknown instruction %s\n", line_number, op);
 	exit(EXIT_FAILURE);
 }
