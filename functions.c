@@ -1,4 +1,10 @@
 #include "monty.h"
+/**
+ * _push - pushes an element to the stack
+ * @stack: double pointer to a double linked list as stack
+ * @line_number: number of lines inside the opcode file
+ * Return: void
+ */
 
 void _push(stack_t **stack, unsigned int line_number)
 {
@@ -19,6 +25,12 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * _pall- prints all the values of the stack starting from the top
+ * @stack: double pointer to a double linked list as stack
+ * @line_number: number of lines inside the opcode file
+ * Return: void
+ */
 void _pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
@@ -37,6 +49,12 @@ void _pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * get_func- check what function to pick according to input
+ * @op: opcode file to run on
+ * @stack: double pointer to head of stack
+ * @line_number: line number of file we process
+ */
 void get_func(char *op, stack_t **stack, unsigned int line_number)
 {
 	instruction_t find_op[] = {
