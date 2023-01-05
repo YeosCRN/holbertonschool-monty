@@ -7,8 +7,6 @@
 #include <sys/stat.h>
 #include <string.h>
 
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 1
 extern int global_var;
 int global_var;
 /**

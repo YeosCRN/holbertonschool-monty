@@ -7,7 +7,7 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
     new = malloc(sizeof(stack_t));
     if (new == NULL)
     {
-        printf("Error: malloc failed\n");
+        fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
     }
     new->n = global_var;
@@ -33,7 +33,7 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
             return;
     while (temp)
     {
-        printf("%d\n", temp->n);
+        fprintf(stderr, "%d\n", temp->n);
         temp = temp->next;
     }
 }
@@ -45,17 +45,18 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		{"pall", pall},
         {NULL, NULL}
     };
-    int index = 0;
 
-	while (find_op[index].opcode != NULL)
+    int i;
+    
+    for (i = 0; find_op[i].opcode != NULL; i++)
 	{
-		if (strcmp(find_op[index].opcode, op) == 0)
+		if (strcmp(op, find_op[i].opcode) == 0)
 		{
-			find_op[index].f(stack, line_number);
+			find_op[i].f(stack, line_number);
 			return;
 		}
-		index++;
 	}
-	printf("L%d: unknown instruction %s\n", line_number, op);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op);
 	exit(EXIT_FAILURE);
+
 }

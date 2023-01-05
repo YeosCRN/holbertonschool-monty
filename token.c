@@ -51,13 +51,13 @@ char *get_tokens(char *line, unsigned int line_number)
 			global_var = atoi(holder);
 		else
 		{
-			printf("L%d: usage: push integer\n", line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else if (holder == NULL && strcmp(token, "push") == 0)
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	return (token);
