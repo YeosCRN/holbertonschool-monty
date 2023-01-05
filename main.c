@@ -1,5 +1,6 @@
 #include "monty.h"
 
+int error = 0;
 /**
  * main - opens monty file and reads lines
  * @argc: number of arguments
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (fgets(str, len, fd) != NULL)
+	while (fgets(str, len, fd) != NULL && error != 1)
 	{
 		line_number++;
 		token = strtok(str, " ");
@@ -41,5 +42,7 @@ int main(int argc, char *argv[])
 	free_stack(stack);
 	free (fd);
 	
-	return (0);
+	if (error == 1)
+		exit(EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
