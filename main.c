@@ -9,12 +9,12 @@ int error = 0;
  * Return: 0 success, 1 failure
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	FILE *fd;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
-	char *str = NULL;
+	char str[1024];
 	char *token = NULL;
 	size_t len = 1024;
 

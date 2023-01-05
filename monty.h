@@ -41,7 +41,7 @@ typedef struct instruction_s
 
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
-int main(int argc, char *argv[]);
+int main(int argc, char **argv);
 void free_stack(stack_t *head);
 void get_func(char *op, stack_t **stack, unsigned int line_number);
 char *get_tokens(char *line, unsigned int line_number);
