@@ -8,7 +8,7 @@ void push(stack_t **stack, unsigned int line_number)
     value = strtok(NULL," ");
     if (value == NULL || is_number(value))
     {
-        fprintf(stderr, "L%u: usage: push integer\n", line_number);
+        fprintf(stderr, "L%d: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
     add = atoi(value);
