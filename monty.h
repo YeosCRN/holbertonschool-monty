@@ -45,7 +45,7 @@ int main(int argc, char *argv[]);
 void free_stack(stack_t *head);
 void get_func(char *op, stack_t **stack, unsigned int line_number);
 char *get_tokens(char *line, unsigned int line_number);
-stack_t *add_node(stack_t **head, const int n);
+stack_t *add_node(stack_t **stack, int n);
 int check_digit(char *arg);
 int _isdigit(int c);
 
