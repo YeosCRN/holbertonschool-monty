@@ -40,8 +40,8 @@ void _pall(stack_t **stack, unsigned int line_number)
 void get_func(char *op, stack_t **stack, unsigned int line_number)
 {
 	instruction_t find_op[] = {
-		{"push", push},
-		{"pall", pall},
+		{"push", _push},
+		{"pall", _pall},
 		{NULL, NULL}};
 
 	int index = 0;
