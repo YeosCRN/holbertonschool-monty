@@ -1,27 +1,22 @@
 #include "monty.h"
 
-void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void push(stack_t **stack, unsigned int line_number)
 {
-    stack_t *new = NULL;
+    int add;
+    char *value;
 
-    new = malloc(sizeof(stack_t));
-    if (new == NULL)
+    value = strtok(NULL," ");
+    if (value == NULL || is_number(value))
     {
-        fprintf(stderr, "Error: malloc failed\n");
+        fprintf(stderr, "L%u: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
-    new->n = global_var;
-    new->prev = NULL;
-
-    if (*stack == NULL)
-    {
-        new->next = NULL;
-        *stack = new;
-        return;
-    }
-    new->next = *stack;
-    (*stack)->prev = new;
-    *stack = new;
+    add = atoi(value);
+    if (add_node(stack, add))
+        {
+            fprintf(stderr, "Error: malloc failed\n");
+            exit(EXIT_FAILURE);
+        }
 }
 
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
@@ -47,7 +42,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
     };
 
     int i;
-    
+
     for (i = 0; find_op[i].opcode != NULL; i++)
 	{
 		if (strcmp(op, find_op[i].opcode) == 0)

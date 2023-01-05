@@ -46,5 +46,6 @@ void free_stack(stack_t *head);
 void get_func(char *op, stack_t **stack, unsigned int line_number);
 int is_number(char *s);
 char *get_tokens(char *line, unsigned int line_number);
+stack_t *add_node(stack_t **head, const int n);
 
 #endif
