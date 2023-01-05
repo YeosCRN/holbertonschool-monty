@@ -41,17 +41,17 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
         {NULL, NULL}
     };
 
-    int i;
+    int index = 0;
 
-    for (i = 0; find_op[i].opcode != NULL; i++)
+	while (find_op[index].opcode != NULL)
 	{
-		if (strcmp(op, find_op[i].opcode) == 0)
+		if (strcmp(find_op[index].opcode, op) == 0)
 		{
-			find_op[i].f(stack, line_number);
+			find_op[index].f(stack, line_number);
 			return;
 		}
+		index++;
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op);
+	printf("L%d: unknown instruction %s\n", line_number, op);
 	exit(EXIT_FAILURE);
-
 }
