@@ -21,17 +21,19 @@ void push(stack_t **stack, unsigned int line_number)
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = NULL;
+	stack_t *temp;
 
 	(void)line_number;
-	
+
 	temp = *stack;
-	if ((*stack) == NULL)
-		return;
-	while (temp)
+	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
+		if (temp == *stack)
+		{
+			return;
+		}
 	}
 }
 
