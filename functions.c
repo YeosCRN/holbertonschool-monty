@@ -19,18 +19,22 @@ void push(stack_t **stack, unsigned int line_number)
         }
 }
 
-void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void pall(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp = NULL;
+	stack_t *mover;
 
-    temp = *stack;
-    if ((*stack) == NULL)
-            return;
-    while (temp)
-    {
-        printf("%d\n", temp->n);
-        temp = temp->next;
-    }
+	(void)line_number;
+
+	mover = *stack;
+	while (mover != NULL)
+	{
+		printf("%d\n", mover->n);
+		mover = mover->next;
+		if (mover == *stack)
+		{
+			return;
+		}
+	}
 }
 
 void get_func(char *op, stack_t **stack, unsigned int line_number)
