@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void push(stack_t **stack, unsigned int line_number)
+void _push(stack_t **stack, unsigned int line_number)
 {
 	int add;
 	char *value;
@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 }
 
-void pall(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
