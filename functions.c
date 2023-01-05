@@ -8,7 +8,7 @@ void push(stack_t **stack, unsigned int line_number)
     value = strtok(NULL,"\n\t ");
     if (value == NULL || check_digit(value))
     {
-        fprintf(stderr, "L%d: usage: push integer\n", line_number);
+        fprintf(stderr, "L%u: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
     add = atoi(value);
@@ -19,22 +19,18 @@ void push(stack_t **stack, unsigned int line_number)
         }
 }
 
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
-	stack_t *mover;
+    stack_t *temp = NULL;
 
-	(void)line_number;
-
-	mover = *stack;
-	while (mover != NULL)
-	{
-		printf("%d\n", mover->n);
-		mover = mover->next;
-		if (mover == *stack)
-		{
-			return;
-		}
-	}
+    temp = *stack;
+    if ((*stack) == NULL)
+            return;
+    while (temp)
+    {
+        printf("%d\n", temp->n);
+        temp = temp->next;
+    }
 }
 
 void get_func(char *op, stack_t **stack, unsigned int line_number)
