@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	while (fgets(str, len, fd) != NULL && error != 1)
 	{
 		line_number++;
-		token = strtok(str, " ");
+		token = strtok(str, "\n\t ");
 		if (token != NULL)
 		{
 			get_func(token, &stack, line_number);

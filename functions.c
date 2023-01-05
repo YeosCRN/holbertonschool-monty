@@ -5,7 +5,7 @@ void push(stack_t **stack, unsigned int line_number)
     int add;
     char *value;
 
-    value = strtok(NULL," ");
+    value = strtok(NULL,"\n\t ");
     if (value == NULL || check_digit(value))
     {
         fprintf(stderr, "L%d: usage: push integer\n", line_number);
