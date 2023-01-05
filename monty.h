@@ -51,6 +51,6 @@ char *get_tokens(char *line, unsigned int line_number);
 stack_t *add_node(stack_t **stack, int n);
 int check_digit(char *arg);
 int _isdigit(int c);
-void pint_func(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
 
 #endif

@@ -49,6 +49,24 @@ void _pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
+#include "monty.h"
+/**
+ * _pint - prints the value at the top of the stack
+ * @stack: double pointer to the beggining of the stack (DLL)
+ * @line_number: the numbers of lines in the opcode file
+ * Return: void
+ */
+void _pint(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		error = 1;
+		return;
+	}
+	fprintf(stdout, "%d\n", (*stack)->n);
+}
+
 /**
  * get_func- check what function to pick according to input
  * @op: opcode file to run on
@@ -60,7 +78,9 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 	instruction_t find_op[] = {
 		{"push", _push},
 		{"pall", _pall},
-		{NULL, NULL}};
+		{"pint", _pint},
+		{NULL, NULL}
+	};
 
 	int index = 0;
 
@@ -75,22 +95,4 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op);
 	exit(EXIT_FAILURE);
-}
-
-#include "monty.h"
-/**
- * pint_func - prints the value at the top of the stack
- * @stack: double pointer to the beggining of the stack (DLL)
- * @line_number: the numbers of lines in the opcode file
- * Return: void
- */
-void pint_func(stack_t **stack, unsigned int line_number)
-{
-	if (*stack == NULL)
-	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		error = 1;
-		return;
-	}
-	fprintf(stdout, "%d\n", (*stack)->n);
 }
