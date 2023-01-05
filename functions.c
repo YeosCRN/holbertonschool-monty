@@ -68,6 +68,82 @@ void _pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
+ * _pop - function that removes the top element of stack
+ * @stack: double pointer to head of stack
+ * @line_number: line number of file we process on
+ */
+
+void _pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		error = 1;
+		return;
+	}
+	*stack = (*stack)->next;
+	if (*stack)
+		(*stack)->prev = NULL;
+	free(tmp);
+}
+
+/**
+ *_swap - swaps the top two elements of stack
+ *@stack: double pointer to head of stack
+ *@line_number: line number of file we process on
+ */
+
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	int swapper;
+
+	if (*stack && (*stack)->next)
+	{
+		swapper = (*stack)->n;
+		(*stack)->n = (*stack)->next->n;
+		(*stack)->next->n = swapper;
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		error = 1;
+		return;
+	}
+}
+
+/**
+ * _add - Function that add the two last node of a linked list data
+ * @stack: Double pointer to the head of stack
+ * @line_number: line number of file we process
+ */
+
+void _add(stack_t **stack, unsigned int line_number)
+{
+	int res = 0;
+
+	if (*stack && (*stack)->next)
+	{
+		res += (*stack)->n;
+		_pop(stack, line_number);
+		(*stack)->n += res;
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		error = 1;
+		return;
+	}
+}
+
+void _nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+
+/**
  * get_func- check what function to pick according to input
  * @op: opcode file to run on
  * @stack: double pointer to head of stack
@@ -79,6 +155,10 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", _pop},
+		{"swap", _swap},
+		{"add", _add},
+		{"nop", _nop},
 		{NULL, NULL}
 	};
 

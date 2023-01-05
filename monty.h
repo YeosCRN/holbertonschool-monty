@@ -52,5 +52,9 @@ stack_t *add_node(stack_t **stack, int n);
 int check_digit(char *arg);
 int _isdigit(int c);
 void _pint(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
+void _nop(stack_t **stack, unsigned int line_number);
 
 #endif
