@@ -6,7 +6,7 @@
  * @line_number: number of lines inside the opcode file
  * Return: void
  */
-void push_func(stack_t **stack, unsigned int line_number)
+void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *push_element;
 	(void) line_number;
