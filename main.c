@@ -40,8 +40,8 @@ int main(int argc, char **argv)
 		}
 	}
 	free_stack(stack);
-	free (fd);
-	
+	free(fd);
+
 	if (error == 1)
 		exit(EXIT_FAILURE);
 	return (EXIT_SUCCESS);
