@@ -48,5 +48,6 @@ int is_number(char *s);
 char *get_tokens(char *line, unsigned int line_number);
 stack_t *add_node(stack_t **head, const int n);
 int check_digit(char *arg);
+int _isdigit(int c);
 
 #endif
