@@ -1,11 +1,11 @@
 #include "monty.h"
+
 /**
  * _push - pushes an element to the stack
  * @stack: double pointer to a double linked list as stack
  * @line_number: number of lines inside the opcode file
  * Return: void
  */
-
 void _push(stack_t **stack, unsigned int line_number)
 {
 	int add;
@@ -159,8 +159,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", _nop},
-		{NULL, NULL}
-	};
+		{NULL, NULL}};
 
 	int index = 0;
 
