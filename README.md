@@ -1,1 +1,0 @@
-# holbertonschool-monty11S
