@@ -22,7 +22,7 @@ stack_t *add_node(stack_t **head, const int n)
 	if (head && *head)
 	{
 		(*head)->prev = new;
-		
+
 		new->next = (*head);
 	}
 
